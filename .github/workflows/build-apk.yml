@@ -27,15 +27,15 @@ jobs:
           gradle-version: "8.13"
 
       - name: Extract Android project
-        run: unzip -q StoryLens_Android_v0.3.zip -d source
+        run: unzip -q StoryLens_Android_v0.4_FIXED2.zip -d source
 
       - name: Build APK
-        working-directory: source/StoryLens_Android_v0.3
+        working-directory: source/StoryLens_Android_v0.4
         run: gradle --no-daemon assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: StoryLens-v0.3-APK
-          path: source/StoryLens_Android_v0.3/app/build/outputs/apk/debug/app-debug.apk
+          name: StoryLens-v0.4-FIXED-APK
+          path: source/StoryLens_Android_v0.4/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
